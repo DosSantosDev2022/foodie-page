@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cores da Marca (Brand) */
+  --primary: 210 40% 98%;      /* Cor de fundo principal para botões e links destacados */
+  --primary-foreground: 222 47% 11%; /* Cor do texto para elementos com fundo --primary */
+  --secondary: 210 40% 96%;   /* Cor de fundo para elementos secundários */
+  --secondary-foreground: 222 47% 11%; /* Cor do texto para elementos com fundo --secondary */
+  --accent: 210 40% 96%;      /* Cor para hover, foco e outros destaques sutis */
+  --accent-foreground: 222 47% 11%;  /* Cor do texto para elementos com fundo --accent */
+
+  /* Cores de Feedback */
+  --destructive: 0 84% 60%;
+  --success: 142 76% 36%;
+  --warning: 48 96% 53%;
+
+  /* Cores Neutras e de Superfície */
+  --background: 0 0% 100%;     /* Cor de fundo principal do site */
+  --foreground: 222 47% 11%;   /* Cor de texto principal sobre o --background */
+  --card: 0 0% 100%;           /* Cor de fundo para componentes como cards */
+  --card-foreground: 222 47% 11%; /* Cor de texto para componentes com fundo --card */
+  --border: 214 32% 91%;       /* Cor para bordas sutis */
+  --input: 214 32% 91%;        /* Cor da borda para inputs */
+  
+  /* Cores de Texto */
+  --text-primary: 224 71% 4%;    /* Cor de texto principal para títulos */
+  --text-secondary: 220 9% 46%; /* Cor de texto secundário para parágrafos */
+  --muted: 210 40% 96%;         /* Cor para elementos com aparência "desativada" */
+}
+/* Estilos para a barra de rolagem no modo light */
+.scrollbar-custom::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+	background-color: var(--primary);
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+	background-color: var(--primary);
+	border-radius: 6px;
+}
+
+/* Estilos para a barra de rolagem no modo dark */
+.dark .scrollbar-custom::-webkit-scrollbar {
+	width: 6px;
+}
+
+.dark .scrollbar-custom::-webkit-scrollbar-track {
+	background-color: var(--color-secondary); /* Cor de fundo escura */
+}
+
+.dark .scrollbar-custom::-webkit-scrollbar-thumb {
+	background-color: var(--color-primary); /* Cor do polegar clara */
+	border-radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
