@@ -1,9 +1,23 @@
-
+// app/page.tsx
+import { BestSellers, Hero } from '@/components';
+import Features from '@/components/global/features';
+import Newsletter from '@/components/global/newsletter';
+import Testimonials from '@/components/global/testimonials';
+import WhyChooseUs from '@/components/global/whyChooseUs';
+// Importa os dados do nosso arquivo JSON
+import data from '@/config/data.json';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <h1>Web Starter</h1>
-    </div>
+    <main className="bg-background">
+
+      <Hero data={data.hero} />
+      <Features data={data.features} />
+      <WhyChooseUs data={data.whyChooseUs} />
+      <BestSellers data={data.bestSellers} />
+      <Testimonials data={data.testimonials} />
+      <Newsletter data={data.newsletter} />
+
+    </main>
   );
 }

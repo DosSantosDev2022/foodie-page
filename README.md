@@ -1,59 +1,52 @@
-# Next.js Landing Page Starter
+# 🍔 Foodie - Landing Page de Delivery
 
-> Um template limpo e opinativo para iniciar rapidamente o desenvolvimento de landing pages, hotsites e sites institucionais.
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-E223B2?style=for-the-badge&logo=framer&logoColor=white)
 
-Este starter foi criado para acelerar o setup inicial de projetos, já vindo com uma estrutura de pastas organizada, um sistema de design tokens (cores) flexível e a separação do conteúdo e da apresentação.
+Projeto de uma landing page moderna, responsiva e animada para um serviço de delivery de comida, desenvolvida com as tecnologias mais recentes do ecossistema React. O foco foi criar uma interface visualmente agradável, com micro-interações e animações fluidas para uma excelente experiência de usuário.
+
 
 ---
 
-## ✨ Features (Recursos)
+### ✨ Principais Funcionalidades
 
--   **Framework Moderno**: Construído com **Next.js 14+** e o **App Router**.
--   **TypeScript**: Tipagem estática para um código mais seguro e manutenível.
--   **Estilização com Tailwind CSS**: Um framework CSS utility-first que permite criar designs complexos rapidamente.
--   🎨 **Sistema de Cores por Função**: Um sistema de cores semântico e centralizado no `globals.css` que facilita a criação de temas. Mude a cor em um lugar e o site inteiro se atualiza.
--   **Conteúdo Centralizado**: Todos os textos, links e imagens são gerenciados em um único arquivo `data.json`, facilitando a manutenção e a colaboração.
--   **Estrutura Organizada**: Pastas e componentes pré-definidos para uma base sólida e escalável.
--   **Qualidade de Código**: Configurado com ESLint para garantir um código padronizado e livre de erros comuns.
+* **Design Responsivo:** Totalmente adaptado para desktops, tablets e smartphones.
+* **Animações de Scroll:** Efeitos de animação sutis que são ativados conforme o usuário rola a página, criados com um componente reutilizável.
+* **Componentização Limpa:** O projeto é dividido em componentes React reutilizáveis para cada seção da página.
+* **Conteúdo Centralizado:** Todos os textos da interface são gerenciados a partir de um único arquivo `data.json`, facilitando a manutenção e futuras traduções.
+* **Performance:** Construído com Next.js para otimização de performance (SSR) e de imagens (`next/image`).
 
-## 🚀 Começando (Getting Started)
+---
 
-Para usar este starter e criar um novo projeto, siga os passos abaixo.
+### 🛠️ Tecnologias Utilizadas
 
-### Pré-requisitos
+* **Next.js 13+** (com App Router)
+* **React 18**
+* **TypeScript**
+* **Tailwind CSS**
+* **Framer Motion** (para animações)
+* **react-intersection-observer** (usado pelo componente de animação de scroll)
 
--   [Node.js](https://nodejs.org/) (versão 18 ou superior)
--   Uma conta no [GitHub](https://github.com/) para hospedar seu repositório.
+---
 
-### 1. Crie seu projeto a partir deste template
+### 🚀 Acesso ao Vivo
 
-A forma mais fácil de começar é usar o `create-next-app` apontando para o repositório deste starter no GitHub.
+Visite a versão final do projeto em produção:
 
-> **Importante**: Primeiro, você precisa enviar o projeto que criamos para o seu próprio repositório no GitHub.
+**[foodie-delivery-page.vercel.app](https://[URL_DO_SEU_DEPLOY])**
 
-Depois de enviar, execute o comando abaixo no seu terminal, substituindo a URL pelo link do **seu** repositório:
+---
 
-```bash
-npx create-next-app -e [https://github.com/DosSantosDev2022/next-web-page-starter](https://github.com/DosSantosDev2022/next-web-page-starter) nome-do-novo-projeto
-```
+### 📸 Screenshot da Página
 
-### 2. Instale as dependências e rode o servidor
+![Screenshot do projeto Foodie](/src/assets/img/screenshot-page.png)
 
-```bash
-# Navegue para a pasta do projeto
-cd nome-do-novo-projeto
+---
 
-# Rode o servidor de desenvolvimento
-npm run dev
-```
+### 👨‍💻 Autor
 
-Pronto! Abra [`http://localhost:3000`](http://localhost:3000) no seu navegador para ver o projeto funcionando.
+Desenvolvido por **Juliano Santos**
 
-
-## 🤝 Contribuições
-
-Este é um projeto starter pessoal, mas sinta-se à vontade para fazer um fork, criar sua própria versão e melhorá-la!
-
-## 📜 Licença
-
-Este projeto está sob a licença [MIT](https://choosealicense.com/licenses/mit/).
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dossantosdev/)

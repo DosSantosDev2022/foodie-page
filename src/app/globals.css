@@ -1,34 +1,53 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
 
-:root {
-  /* Cores da Marca (Brand) */
-  --primary: 210 40% 98%;      /* Cor de fundo principal para botões e links destacados */
-  --primary-foreground: 222 47% 11%; /* Cor do texto para elementos com fundo --primary */
-  --secondary: 210 40% 96%;   /* Cor de fundo para elementos secundários */
-  --secondary-foreground: 222 47% 11%; /* Cor do texto para elementos com fundo --secondary */
-  --accent: 210 40% 96%;      /* Cor para hover, foco e outros destaques sutis */
-  --accent-foreground: 222 47% 11%;  /* Cor do texto para elementos com fundo --accent */
-
-  /* Cores de Feedback */
-  --destructive: 0 84% 60%;
-  --success: 142 76% 36%;
-  --warning: 48 96% 53%;
-
-  /* Cores Neutras e de Superfície */
-  --background: 0 0% 100%;     /* Cor de fundo principal do site */
-  --foreground: 222 47% 11%;   /* Cor de texto principal sobre o --background */
-  --card: 0 0% 100%;           /* Cor de fundo para componentes como cards */
-  --card-foreground: 222 47% 11%; /* Cor de texto para componentes com fundo --card */
-  --border: 214 32% 91%;       /* Cor para bordas sutis */
-  --input: 214 32% 91%;        /* Cor da borda para inputs */
-  
-  /* Cores de Texto */
-  --text-primary: 224 71% 4%;    /* Cor de texto principal para títulos */
-  --text-secondary: 220 9% 46%; /* Cor de texto secundário para parágrafos */
-  --muted: 210 40% 96%;         /* Cor para elementos com aparência "desativada" */
+@layer base {
+  :root {
+   --background: hsl(0 0% 100%);
+    --foreground: hsl(20 14.3% 4.1%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(20 14.3% 4.1%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(20 14.3% 4.1%);
+    --primary: hsl(24.6 95% 53.1%);
+    --primary-foreground: hsl(60 9.1% 97.8%);
+    --secondary: hsl(60 4.8% 95.9%);
+    --secondary-foreground: hsl(24 9.8% 10%);
+    --muted: hsl(60 4.8% 95.9%);
+    --muted-foreground: hsl(25 5.3% 44.7%);
+    --accent: hsl(60 4.8% 95.9%);
+    --accent-foreground: hsl(24 9.8% 10%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(60 9.1% 97.8%);
+    --border: hsl(20 5.9% 90%);
+    --input: hsl(20 5.9% 90%);
+    --ring: hsl(24.6 95% 53.1%);
+    --radius: 0.5rem;
+  }
 }
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
 /* Estilos para a barra de rolagem no modo light */
 .scrollbar-custom::-webkit-scrollbar {
 	width: 6px;

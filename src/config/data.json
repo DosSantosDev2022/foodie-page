@@ -1,0 +1,108 @@
+{
+  "header": {
+    "logo": "Foodie",
+    "navLinks": ["Início", "Sobre Nós", "Novidades", "Minha Conta", "Contato"],
+    "loginButton": "Entrar"
+  },
+  "hero": {
+    "tagline": "O Sabor que Você Deseja",
+    "title": "Na Porta da Sua Casa",
+    "description": "Descubra pratos incríveis preparados com os melhores ingredientes. A experiência de restaurante que você ama, com a conveniência que você precisa.",
+    "orderButton": "Peça Agora"
+  },
+  "features": [
+    {
+      "title": "Ingredientes Frescos",
+      "description": "Selecionamos apenas os melhores ingredientes, frescos e de produtores locais, para garantir pratos saborosos e saudáveis.",
+      "icon": "/img/icon-quality.png"
+    },
+    {
+      "title": "Entrega Rápida",
+      "description": "Nosso sistema de logística otimizado garante que seu pedido chegue quentinho e no menor tempo possível.",
+      "icon": "/img/icon-rockeat.png"
+    },
+    {
+      "title": "Pagamento Facilitado",
+      "description": "Aceitamos diversas formas de pagamento, incluindo cartões de crédito, débito e PIX, com total segurança.",
+      "icon": "/img/icon-money.png"
+    },
+    {
+      "title": "Peça de Onde Estiver",
+      "description": "Faça seus pedidos de forma simples e rápida através do nosso site ou aplicativo, disponível para iOS e Android.",
+      "icon": "/img/icon-smartphone.png"
+    }
+  ],
+  "whyChooseUs": {
+    "title": "Por que as pessoas nos escolhem?",
+    "reasons": [
+      {
+        "title": "Conveniência e Confiança",
+        "description": "Economize tempo e evite o estresse. Com poucos cliques, seu prato favorito chega até você com a pontualidade e a qualidade que você merece.",
+        "icon": "/img/icon-motoboy.png"
+      },
+      {
+        "title": "Variedade de Opções",
+        "description": "Do café da manhã ao jantar, nosso cardápio diversificado atende a todos os gostos, incluindo opções vegetarianas, veganas e sem glúten.",
+        "icon": "/img/icon-cardapio.png"
+      },
+      {
+        "title": "Coma de Forma Consciente",
+        "description": "Nosso compromisso vai além do sabor. Priorizamos o uso de embalagens sustentáveis e ingredientes de origem responsável.",
+        "icon": "/img/icon-burguer.png"
+      }
+    ]
+  },
+  "bestSellers": {
+    "title": "Nossos Pratos Mais Pedidos",
+    "description": "Estes são os favoritos da nossa comunidade. Pratos que conquistam pelo sabor, qualidade e carinho no preparo. Experimente e descubra por que eles são um sucesso!",
+    "dishes": [
+      { "name": "Parmegiana de Filé Mignon", "price": "69,90", "img": "/img/biffe-parmegiana.webp" },
+      { "name": "Salmão Grelhado com Legumes", "price": "75,50", "img": "/img/Salmao-com-Legumes.webp" },
+      { "name": "Hambúrguer Artesanal da Casa", "price": "39,90", "img": "/img/hamburguer-artesanal.webp" },
+      { "name": "Lasanha à Bolonhesa", "price": "49,90", "img": "/img/Lasanha-a-bolonhesa.webp" },
+      { "name": "Feijoada Completa", "price": "59,90", "img": "/img/feijoada.webp" },
+      { "name": "Salada Caesar com Frango", "price": "35,00", "img": "/img/salada-caesar-com-frango.webp" }
+    ]
+  },
+  "testimonials": {
+  "title": "O que Nossos Clientes Dizem",
+  "reviews": [
+    {
+      "id": "review01",
+      "review": "Fiquei impressionada com a qualidade da comida e do atendimento. O pedido chegou rápido, quentinho e tudo estava delicioso. Com certeza virei cliente fiel. Recomendo para todos!",
+      "customerName": "Juliana Silva",
+      "customerTitle": "Desenvolvedora Web",
+      "customerImage": "/img/avatar-01.jpg"
+    },
+    {
+      "id": "review02",
+      "review": "A variedade de opções no cardápio é fantástica! Finalmente um lugar que tem opções saudáveis e saborosas de verdade. O salmão grelhado é o meu favorito.",
+      "customerName": "Ricardo Mendes",
+      "customerTitle": "Nutricionista",
+      "customerImage": "/img/avatar-02.jpg"
+    },
+    {
+      "id": "review03",
+      "review": "O melhor hambúrguer artesanal que já comi! A entrega foi super rápida e o app é muito fácil de usar. Perfeito para o fim de semana!",
+      "customerName": "Carlos Costa",
+      "customerTitle": "Designer Gráfico",
+      "customerImage": "/img/avatar-03.jpg"
+    }
+  ]
+},
+  "newsletter": {
+    "title": "Assine nossa Newsletter",
+    "placeholder": "Digite seu e-mail",
+    "button": "Inscrever-se"
+  },
+  "footer": {
+    "logo": "Foodie",
+    "description": "Sua melhor opção para delivery de comida. Sabor, qualidade e rapidez para todos os momentos do seu dia.",
+    "links": {
+      "Sobre": ["Quem Somos", "Diferenciais", "Novidades", "Cardápio"],
+      "Empresa": ["Por que Foodie?", "Seja um Parceiro", "Dúvidas Frequentes", "Blog"],
+      "Suporte": ["Minha Conta", "Central de Ajuda", "Feedback", "Fale Conosco"],
+      "Contato": ["Dúvidas ou sugestões?", "Adoraríamos ouvir você!"]
+    }
+  }
+}

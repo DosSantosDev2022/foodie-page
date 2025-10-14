@@ -1,2 +1,10 @@
 // Exports de componentes da UI
 export * from './ui/button'
+export * from './layout/header'
+export * from './global/bestSellers'
+export * from './global/hero'
+export * from './global/footer'
+export * from './global/features'
+export * from './global/newsletter'
+export * from './global/testimonials'
+export * from './global/whyChooseUs'
