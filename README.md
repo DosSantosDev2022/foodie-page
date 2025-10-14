@@ -35,7 +35,7 @@ Projeto de uma landing page moderna, responsiva e animada para um serviço de de
 
 Visite a versão final do projeto em produção:
 
-**[foodie-delivery-page.vercel.app](https://[URL_DO_SEU_DEPLOY])**
+**[foodie-page.vercel.app](https://foodie-page.vercel.app/)**
 
 ---
 
