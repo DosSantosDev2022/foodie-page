@@ -10,7 +10,7 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 
 // Interface ajustada para incluir o ID
 interface Review {
-  id: number;
+  id: string;
   review: string;
   customerName: string;
   customerTitle: string;
@@ -19,7 +19,6 @@ interface Review {
 
 interface TestimonialsProps {
   data: {
-    id: string
     title: string;
     reviews: Review[];
   };
