@@ -2,13 +2,11 @@
 "use client";
 
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-// 1. Importamos os componentes da framer-motion
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '../ui/button';
 import { AnimateOnScroll } from './AnimateOnScroll';
+import { Button } from '../ui/button';
 
-// Interface ajustada para incluir o ID
 interface Review {
   id: string;
   review: string;
@@ -24,13 +22,9 @@ interface TestimonialsProps {
   };
 }
 
-// 2. variantes da  animação
 const variants = {
-  // Estado inicial: invisível e levemente à direita
   initial: { opacity: 0, x: 50 },
-  // Estado animado: totalmente visível e na posição original
   animate: { opacity: 1, x: 0 },
-  // Estado de saída: invisível e levemente à esquerda
   exit: { opacity: 0, x: -50 },
 };
 
@@ -48,56 +42,59 @@ const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
   const activeTestimonial = data.reviews[currentSlide];
 
   return (
-    <section className=" py-20 overflow-hidden">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-        <div className="md:w-1/2 text-center md:text-left">
-          <h2 className="text-5xl font-bold text-foreground">
-            Feedback do <span className="text-primary">Cliente</span>
-          </h2>
+    <section className="py-16 md:py-24 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-          {/* 3. Usamos AnimatePresence para gerenciar a animação de saída */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTestimonial.id}
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.5 }}
-              className="mt-8"
-            >
-              <blockquote className="text-muted-foreground text-lg min-h-[150px]">
-                "{activeTestimonial.review}"
-              </blockquote>
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Feedback do <span className="text-primary">Cliente</span>
+            </h2>
 
-              <div className="mt-4 flex items-center justify-center md:justify-start">
-                <div className="relative w-16 h-16 rounded-full mr-4 flex-shrink-0 overflow-hidden">
-                  <Image src={activeTestimonial.customerImage} alt={activeTestimonial.customerName} fill className="object-cover" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTestimonial.id}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+                className="mt-8"
+              >
+                <blockquote className="text-muted-foreground text-lg min-h-[150px] md:min-h-[120px]">
+                  "{activeTestimonial.review}"
+                </blockquote>
+
+                <div className="mt-4 flex items-center justify-center lg:justify-start">
+                  <div className="relative w-16 h-16 rounded-full mr-4 flex-shrink-0 overflow-hidden">
+                    <Image src={activeTestimonial.customerImage} alt={activeTestimonial.customerName} fill className="object-cover" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary text-lg">{activeTestimonial.customerName}</p>
+                    <p className="text-sm text-muted-foreground">{activeTestimonial.customerTitle}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-bold text-primary text-lg">{activeTestimonial.customerName}</p>
-                  <p className="text-sm text-muted-foreground">{activeTestimonial.customerTitle}</p>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
 
-          <div className="flex space-x-2 mt-8 justify-center md:justify-start">
-            {data.reviews.map((_, index) => (
-              <Button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? 'bg-primary' : 'bg-gray-300 hover:bg-gray-400'}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+            <div className="flex space-x-2 mt-8 justify-center lg:justify-start">
+              {data.reviews.map((_, index) => (
+                <Button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 p-0 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${currentSlide === index ? 'bg-primary' : 'bg-muted hover:bg-muted-foreground/50'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-          <AnimateOnScroll className="w-full h-96 relative rounded-lg">
-            <Image alt='Imagem do chefe da cozinha' src={'/img/cheff.png'} fill className='object-contain' />
+          <AnimateOnScroll className="w-full lg:w-1/2 flex justify-center">
+            <div className="relative w-full max-w-md aspect-square">
+              <Image alt='Imagem do chefe da cozinha' src={'/img/cheff.png'} fill className='object-contain' />
+            </div>
           </AnimateOnScroll>
+
         </div>
       </div>
     </section>
