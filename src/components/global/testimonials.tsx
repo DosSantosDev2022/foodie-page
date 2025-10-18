@@ -1,20 +1,19 @@
-// components/Testimonials.tsx
+// components/global/testimonials.tsx
 "use client";
 
+import { Review, useTestimonialSlider } from '@/hooks/use-testimonial-slider';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { AnimateOnScroll } from './AnimateOnScroll';
+import React from 'react';
 import { Button } from '../ui/button';
+import { AnimateOnScroll } from './AnimateOnScroll';
 
-interface Review {
-  id: string;
-  review: string;
-  customerName: string;
-  customerTitle: string;
-  customerImage: string;
-}
-
+/**
+ * @interface TestimonialsProps
+ * @property {object} data - Dados para o componente.
+ * @property {string} data.title - Título da seção (não usado diretamente, mas mantido).
+ * @property {Review[]} data.reviews - Array de depoimentos.
+ */
 interface TestimonialsProps {
   data: {
     title: string;
@@ -29,54 +28,51 @@ const variants = {
 };
 
 const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % data.reviews.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [data.reviews.length]);
-
-  const activeTestimonial = data.reviews[currentSlide];
+  // Usa o hook customizado para gerenciar a lógica
+  const { currentSlide, setCurrentSlide, activeTestimonial } = useTestimonialSlider(data.reviews, 5000);
 
   return (
     <section className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
+          {/* Coluna de Texto/Slider */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            {/* Tipografia Fluida */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
               Feedback do <span className="text-primary">Cliente</span>
             </h2>
 
             <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonial.id}
-                variants={variants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.5 }}
-                className="mt-8"
-              >
-                <blockquote className="text-muted-foreground text-lg min-h-[150px] md:min-h-[120px]">
-                  "{activeTestimonial.review}"
-                </blockquote>
+              {activeTestimonial && (
+                <motion.div
+                  key={activeTestimonial.id}
+                  variants={variants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={{ duration: 0.5 }}
+                  className="mt-8"
+                >
+                  {/* Altura mínima fixa para evitar "pulo" no layout durante a transição */}
+                  <blockquote className="text-muted-foreground text-lg min-h-[150px] md:min-h-[120px] lg:min-h-[100px]">
+                    "{activeTestimonial.review}"
+                  </blockquote>
 
-                <div className="mt-4 flex items-center justify-center lg:justify-start">
-                  <div className="relative w-16 h-16 rounded-full mr-4 flex-shrink-0 overflow-hidden">
-                    <Image src={activeTestimonial.customerImage} alt={activeTestimonial.customerName} fill className="object-cover" />
+                  <div className="mt-4 flex items-center justify-center lg:justify-start">
+                    <div className="relative w-16 h-16 rounded-full mr-4 flex-shrink-0 overflow-hidden">
+                      <Image src={activeTestimonial.customerImage} alt={activeTestimonial.customerName} fill className="object-cover" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-primary text-lg">{activeTestimonial.customerName}</p>
+                      <p className="text-sm text-muted-foreground">{activeTestimonial.customerTitle}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-bold text-primary text-lg">{activeTestimonial.customerName}</p>
-                    <p className="text-sm text-muted-foreground">{activeTestimonial.customerTitle}</p>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
             </AnimatePresence>
 
+            {/* Controles do Slider */}
             <div className="flex space-x-2 mt-8 justify-center lg:justify-start">
               {data.reviews.map((_, index) => (
                 <Button
@@ -89,8 +85,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
             </div>
           </div>
 
+          {/* Coluna da Imagem (Chefe) */}
           <AnimateOnScroll className="w-full lg:w-1/2 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square">
+            {/* max-w para limitar o tamanho em mobile/tablet */}
+            <div className="relative w-full max-w-sm md:max-w-md aspect-square">
               <Image alt='Imagem do chefe da cozinha' src={'/img/cheff.png'} fill className='object-contain' />
             </div>
           </AnimateOnScroll>

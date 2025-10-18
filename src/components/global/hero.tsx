@@ -1,9 +1,17 @@
-// components/Hero.tsx
-import React from 'react';
+// components/hero.tsx
 import Image from 'next/image';
-import { AnimateOnScroll } from './AnimateOnScroll';
+import React from 'react';
 import { Button } from '../ui/button';
+import { AnimateOnScroll } from './AnimateOnScroll';
 
+/**
+ * @interface HeroProps
+ * @property {object} data - Dados para o componente Hero.
+ * @property {string} data.tagline - Tagline ou subtítulo.
+ * @property {string} data.title - Título principal.
+ * @property {string} data.description - Descrição.
+ * @property {string} data.orderButton - Texto do botão de pedido.
+ */
 interface HeroProps {
   data: {
     tagline: string;
@@ -15,20 +23,17 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ data }) => {
   return (
-    <section className="py-16 md:py-24 overflow-x-hidden">
+    < section className="py-16 md:py-24 overflow-x-hidden px-4" >
+      < div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16" >
 
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-16">
-
-        {/* Coluna de Texto */}
+        {/* Coluna de Texto: Centralizado em mobile e à esquerda em lg */}
         <AnimateOnScroll
           className="w-full lg:w-5/12 text-center lg:text-left"
         >
-          <h2 className="text-lg md:text-xl font-semibold bg-primary/10 text-primary inline-block px-3 py-1 rounded-full">
+          <h2 className="text-base md:text-xl font-semibold bg-primary/10 text-primary inline-block px-3 py-1 rounded-full">
             {data.tagline}
           </h2>
 
-          {/* 4. Tipografia mais fluida. Adicionamos mais um breakpoint (`sm`) para um crescimento
-              mais suave do tamanho da fonte entre o mobile e o desktop. */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 text-foreground">
             {data.title}
           </h1>
@@ -37,17 +42,16 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
             {data.description}
           </p>
 
-          <Button size="lg"> {/* Botão um pouco maior para mais destaque */}
+          <Button size="lg">
             {data.orderButton}
           </Button>
-        </AnimateOnScroll>
+        </AnimateOnScroll >
 
-        {/* Coluna da Imagem */}
-        <AnimateOnScroll
+        < AnimateOnScroll
           className="w-full lg:w-6/12 flex justify-center"
         >
-          {/* O container da imagem não precisa de muitas alterações, a estrutura com `aspect-square` é excelente. */}
-          <div className="relative w-full max-w-2xl aspect-square">
+          {/* max-w-md para telas pequenas, aumentando até 2xl em telas maiores */}
+          <div className="relative w-full max-w-md md:max-w-xl lg:max-w-2xl aspect-square" >
             <Image
               alt="Mulher feliz segurando uma fatia de pizza"
               src={'/img/hero.png'}
@@ -55,11 +59,11 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
               className="object-contain"
               priority
             />
-          </div>
-        </AnimateOnScroll>
+          </div >
+        </AnimateOnScroll >
 
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

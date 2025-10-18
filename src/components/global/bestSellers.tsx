@@ -1,36 +1,53 @@
-// components/BestSellers.tsx
+// components/best-sellers.tsx
 import Image from 'next/image';
 import React from 'react';
 import { Button } from '../ui/button';
-import { AnimateOnScroll } from './AnimateOnScroll';
+import { AnimateOnScroll } from './AnimateOnScroll'; // Padrão kebab-case
 
+/**
+ * @interface Dish
+ * @property {string} name - Nome do prato.
+ * @property {string} price - Preço do prato.
+ * @property {string} img - URL da imagem.
+ */
+interface Dish {
+  name: string;
+  price: string;
+  img: string
+}
+
+/**
+ * @interface BestSellersProps
+ * @property {object} data - Dados para o componente.
+ * @property {string} data.title - Título da seção.
+ * @property {string} data.description - Descrição da seção.
+ * @property {Dish[]} data.dishes - Array de pratos.
+ */
 interface BestSellersProps {
   data: {
     title: string;
     description: string;
-    dishes: {
-      name: string;
-      price: string;
-      img: string
-    }[];
+    dishes: Dish[];
   };
 }
 
 const BestSellers: React.FC<BestSellersProps> = ({ data }) => {
   return (
-    <section className="bg-linear-to-b from-primary/10 to-primary/5 py-16 md:py-24">
+    <section className="bg-gradient-to-b from-primary/10 to-primary/5 py-16 md:py-24">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{data.title} 🔥🔥</h2>
+        {/* Tipografia Fluida */}
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">{data.title} 🔥🔥</h2>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
           {data.description}
         </p>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* O grid foi ajustado: 1 coluna em mobile, 2 em md (tablet/notebooks) e 3 em lg (desktops) */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.dishes.map((dish, index) => (
             <AnimateOnScroll
               delay={0.2 + index * 0.15}
               key={index}
-              className="bg-background p-6 rounded-lg shadow-md text-left flex flex-col"
+              className="bg-background p-6 rounded-xl shadow-lg text-left flex flex-col transition-all hover:shadow-xl"
             >
               <div className="relative w-full overflow-hidden rounded-md aspect-video mb-4">
                 <Image
